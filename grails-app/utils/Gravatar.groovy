@@ -12,7 +12,7 @@ class Gravatar {
     static url = { String email, configName='default' ->
         def config = []
         config.putAll(defaultConfig)
-        config.putAll(ConfigurationHolder.config.gravagrails.configs[configName])
+        config.putAll(ConfigurationHolder.config.gravagrails.configs[configName] as HashMap)
         String emailHash = email.toLowerCase().encodeAsMD5()
         String url = "http://www.Gravatar.com/avatar/$emailHash?s=${config['size']}&d=${config.imageset}&r=${config.rating}"
         return url

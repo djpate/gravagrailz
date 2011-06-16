@@ -30,6 +30,23 @@ Brief description of the plugin.
     }
 
     def doWithDynamicMethods = { ctx ->
+        application.domainClasses.each { domainClass ->
+
+            if(domainClass.hasProperty('email')){
+                domainClass.metaClass.gravatarUrl = { ->
+
+                    String email = 'FOO'
+
+                    String emailHash = email.toLowerCase().encodeAsMD5()
+
+                    String url = "http://www.gravatar.com/avatar/$emailHash"
+
+                    return url
+
+                }
+            }
+
+        }
         // TODO Implement registering dynamic methods to classes (optional)
     }
 
@@ -47,4 +64,6 @@ Brief description of the plugin.
         // TODO Implement code that is executed when the project configuration changes.
         // The event is the same as for 'onChange'.
     }
+
+
 }

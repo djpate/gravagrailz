@@ -35,8 +35,6 @@ Brief description of the plugin.
             if(domainClass.hasProperty('email')){
                 domainClass.metaClass.gravatarUrl = { ->
 
-                    String email = 'FOO'
-
                     String emailHash = email.toLowerCase().encodeAsMD5()
 
                     String url = "http://www.gravatar.com/avatar/$emailHash"

@@ -12,7 +12,7 @@ class Gravatar {
 
         String emailHash = email.toLowerCase().encodeAsMD5()
 
-        config = configs[configName]
+        Map config = configs[configName]
 
         String url = "http://www.Gravatar.com/avatar/$emailHash?s=${config['size']}&d=${config.imageset}&r=${config.rating}"
 

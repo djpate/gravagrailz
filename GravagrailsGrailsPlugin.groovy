@@ -1,3 +1,5 @@
+import Gravatar;
+
 class GravagrailsGrailsPlugin {
     // the plugin version
     def version = "0.1"

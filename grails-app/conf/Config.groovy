@@ -22,3 +22,6 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+gravagrails.configs.default = [ size: 80, imageset: 'mm', rating: 'g' ]
+

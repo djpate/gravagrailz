@@ -1,4 +1,5 @@
-
+import javax.security.auth.login.Configuration
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
 /**
  * Created by IntelliJ IDEA.
  * User: djpate
@@ -9,25 +10,11 @@
 class Gravatar {
 
     static url = { String email, configName='default' ->
-
+        def config = ConfigurationHolder.config.gravagrails.configs[configName]
         String emailHash = email.toLowerCase().encodeAsMD5()
-
-        Map config = configs[configName]
-
         String url = "http://www.Gravatar.com/avatar/$emailHash?s=${config['size']}&d=${config.imageset}&r=${config.rating}"
-
-
-
         return url
 
     }
-
-    static configs = [
-        default: [
-            size: 80,
-            imageset: 'mm',
-            rating: 'g'
-        ]
-    ]
 
 }

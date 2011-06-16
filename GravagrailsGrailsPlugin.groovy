@@ -33,13 +33,9 @@ Brief description of the plugin.
         application.domainClasses.each { domainClass ->
 
             if(domainClass.hasProperty('email')){
-                domainClass.metaClass.gravatarUrl = { ->
+                domainClass.metaClass.gravatarUrl = { configName = 'default' ->
 
-                    String emailHash = email.toLowerCase().encodeAsMD5()
-
-                    String url = "http://www.gravatar.com/avatar/$emailHash"
-
-                    return url
+                    return Gravatar.url(email, configName)
 
                 }
             }
